@@ -12,7 +12,5 @@
 */
 
 Route::get('/','MovieController@getAll');
-Route::get('/movie/add','MovieController@add');
-Route::post('/movie/add/request','MovieController@adding');
 Route::get('/movie/view/{id}','MovieController@viewOne');
-Route::get('/movie/delete/{id?}','MovieController@deleteOne');
+Route::post('/movie/coment/{id}/request','MovieController@addComent');

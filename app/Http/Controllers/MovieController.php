@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Coment;
 use App\Movie;
 use Illuminate\Http\Request;
 
@@ -21,29 +22,16 @@ class MovieController extends Controller
         return View('movies.view',compact('movie','actors'));
     }
 
-
-    public function add()
+    public function addComent($id,Request $request)
     {
-        return View('movies.add');
-    }
 
+        $coment = new Coment();
+        $coment->the_coment = $request->coment;
+        $coment->movie_id = $id;
 
-    public function adding(Request $request)
-    {
-        $movie = new Movie();
-        $movie->name = $request->name;
-        $movie->image = $request->image;
-        $movie->video = $request->video;
-        $movie->Director_id = 1;
-        $movie->save();
+        $coment->save();
+
         return redirect('/');
     }
 
-
-    public function deleteOne($id)
-    {
-        $movie = Movie::find($id);
-        $movie->delete();
-        return redirect('/');
-    }
 }

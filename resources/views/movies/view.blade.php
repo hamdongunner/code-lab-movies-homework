@@ -28,25 +28,42 @@
               <h3 class="text-left" style="color: gold;"> {{$actor->name}}</h3>
             </div>
         @endforeach
-        <br><br><br><br><br>
+        <br><br><br><br><br><br>
 
 
 
     </div>
         <div class="row">
-            <div class="row">
+
                 <div class="col-md-8 col-md-offset-2 text-center">
                     <iframe width="854" height="480"
                             src="{{$movie->video}}" frameborder="0" allowfullscreen>
                     </iframe>
                 </div>
-            </div>
-
         </div>
     <br><br><br><br><br>
+    <div class="row text-center" style="width: 100%">
+        <div class="col-md-8 col-md-offset-2">
+            <form class="panel panel-warning" method="post" action="/movie/coment/{{$movie->id}}/request">
+                    {{csrf_field()}}
+                    <div class="input-group">
+                        <div class="input-group-addon"><button style="height: 20px;font-size: 90%;" type="submit" class="btn btn-default text-center">ADD</button></div>
+                        <input name="coment" type="text" class="form-control" id="exampleInputAmount" placeholder="type here . . .">
+                    </div>
+                <table style="background-color: white" class="table table-responsive table-bordered">
+                    @foreach($movie->coments as $coments)
+                        <tr>
+                            <th class="text-center">{{$coments->the_coment}}</th>
+                        </tr>
+                    @endforeach
+                </table>
+            </form>
 
 
-    </div>
+</div>
+<br><br><br><br><br><br>
+</div>
+</div>
 
 @endsection
 
