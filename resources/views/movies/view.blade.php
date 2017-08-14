@@ -43,11 +43,11 @@
         </div>
     <br><br><br><br><br>
     <div class="row text-center" style="width: 100%">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-6 col-md-offset-3">
             <form class="panel panel-warning" method="post" action="/movie/coment/{{$movie->id}}/request">
                     {{csrf_field()}}
                     <div class="input-group">
-                        <div class="input-group-addon"><button style="height: 20px;font-size: 90%;" type="submit" class="btn btn-default text-center">ADD</button></div>
+                        <div class="input-group-addon"><button style="width: 20px;height:20px;color: black;" type="submit" class="btn btn-default text-center"></button></div>
                         <input name="coment" type="text" class="form-control" id="exampleInputAmount" placeholder="type here . . .">
                     </div>
                 <table style="background-color: white" class="table table-responsive table-bordered">

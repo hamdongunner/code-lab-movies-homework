@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Coment;
 use App\Movie;
 use Illuminate\Http\Request;
+use Auth;
+
 
 class MovieController extends Controller
 {
@@ -24,14 +26,20 @@ class MovieController extends Controller
 
     public function addComent($id,Request $request)
     {
+        if(Auth::check()){
+            if($request->coment != ""){
+                $coment = new Coment();
+                $coment->the_coment = $request->coment;
+                $coment->movie_id = $id;
+                $coment->save();
+                return back();
+            }
+        }else{
+            return redirect('/auth');
+        }
 
-        $coment = new Coment();
-        $coment->the_coment = $request->coment;
-        $coment->movie_id = $id;
 
-        $coment->save();
 
-        return redirect('/');
     }
 
 }

@@ -26,7 +26,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1 ">
             <ul class="nav navbar-nav">
-                {{--<li class="@yield('home')"><a href="/">Home <span class="sr-only">(current)</span></a></li>--}}
+               @if(Auth::check())
+                    <li ><a href="/logout">Logout <span class="sr-only">(current)</span></a></li>
+                @endif
                 {{--<li class="@yield('about')"><a href="/about">About</a></li>--}}
                 {{--<li class="@yield('about')"><a href="/get_blogs">get_blogs</a></li>--}}
                 {{--<li class="@yield('signout')"><a href="/out">Singout</a></li>--}}
